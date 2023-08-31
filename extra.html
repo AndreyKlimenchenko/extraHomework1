@@ -1,13 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>extraHomework</title>
-</head>
-<body>
+  </head>
+  <body>
+    <p>
+      `A2+ Написать чистую функцию, эффективно удаляющую из переданной ей строки
+      все начальные и конечные пробелы. Не используйте метод строки trim. Не
+      используйте массивы (это неэффективно в данной задаче). Если умеете
+      работать с регулярными выражениям - не используйте и их :) Спросите у
+      пользователя строку, уберите из неё с помощью этой функции начальные и
+      конечные пробелы, и выведите в alert результат, добавив к нему слева и
+      справа какой-нибудь символ, чтобы было очевидно, что пробелов нет.
+      "Чистая" функция - это функция, которая не обращается к глобальным
+      переменным, к веб-странице, не лезет к пользователю с вопросами и
+      сообщениями; её работа и вычисленный ею результат целиком и полностью
+      зависят ТОЛЬКО от переданных ей аргументов. Результат она должна
+      возвращать оператором return. Всё что нужно спросить у пользователя или
+      сообщить пользователю - следует сделать ВНЕ "чистой" функции.
+    </p>
     <script>
-        
+      let getInfo = prompt("Введите текст");
+      function stringTrim(s) {
+        let first = undefined;
+        for (let i = 0; i < s.length; ++i) {
+          if (s[i] !== " ") {
+            first = i;
+            break;
+          }
+        }
+        if (first === undefined) {
+          return "";
+        }
+
+        let last;
+        for (let i = s.length - 1; ; --i) {
+          if (s[i] !== " ") {
+            last = i;
+            break;
+          }
+        }
+        const newString = s.substring(first, last + 1);
+        const newData = "*" + newString.concat("*");
+        return newData;
+      }
+      const data = stringTrim(getInfo);
+      alert(data);
     </script>
-</body>
+  </body>
 </html>
