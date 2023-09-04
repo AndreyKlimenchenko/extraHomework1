@@ -17,9 +17,6 @@
             break;
           }
         }
-        if (!first) {
-          return "";
-        }
 
         let last;
         for (let i = s.length - 1; ; --i) {
@@ -31,7 +28,7 @@
         const newString = s.substring(first, last + 1);
         return newString;
       }
-      
+
       const data = stringTrim(value);
       const newData = `*${data}*`;
       alert(newData);
