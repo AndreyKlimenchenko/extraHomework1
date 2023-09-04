@@ -7,8 +7,9 @@
   </head>
   <body>
     <script>
-      function stringTrim() {
-        const s = prompt("Введите текст");
+      const value = prompt("Введите текст");
+
+      function stringTrim(s) {
         let first;
         for (let i = 0; i < s.length; ++i) {
           if (s[i] !== " ") {
@@ -28,11 +29,12 @@
           }
         }
         const newString = s.substring(first, last + 1);
-        const newData = `*${newString}*`;
-        return newData;
+        return newString;
       }
-      const data = stringTrim();
-      alert(data);
+      
+      const data = stringTrim(value);
+      const newData = `*${data}*`;
+      alert(newData);
     </script>
   </body>
 </html>
