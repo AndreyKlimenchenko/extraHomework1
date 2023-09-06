@@ -11,11 +11,20 @@
 
       function stringTrim(s) {
         let first;
+
+        if (s[0] !== " " && s[s.length - 1] !== " ") {
+          return s;
+        }
+
         for (let i = 0; i < s.length; ++i) {
           if (s[i] !== " ") {
             first = i;
             break;
           }
+        }
+
+        if (first === undefined) {
+          return "";
         }
 
         let last;
@@ -25,7 +34,9 @@
             break;
           }
         }
+
         const newString = s.substring(first, last + 1);
+
         return newString;
       }
 
